@@ -1,14 +1,10 @@
 <div align="center">
-  <h1>My Simple HTTP Server</h1> <img src="" alt="http Logo" width="80"></br></br>
+  <h1>My Simple HTTP Server 🌐</h1> <img src="https://github.com/deryaxacar/SimpleHttpServer/blob/main/11494059.png" alt="http Logo" width="110"></br></br>
 </div>
 
----
-
-### Project Description
-
-This project is a **simple HTTPS server** developed using the C programming language. The server establishes secure connections using SSL/TLS and handles HTTP requests from clients to serve responses. The project includes core functionalities such as serving static files, handling user feedback, and providing data in JSON format via a simple API.
-
-The goal of the project is to gain a better understanding of web development processes and enhance networking skills in C. The server allows users to securely access content via web browsers and communicates using basic HTTP protocol. It is powered by the OpenSSL library to implement SSL/TLS protocols and serves as a foundational example for C-based applications.
+<p align="center">
+  This project is a **simple HTTPS server** developed using the C programming language. The server establishes secure connections using SSL/TLS and handles HTTP requests from clients to serve responses. The project includes core functionalities such as serving static files, handling user feedback, and providing data in JSON format via a simple API. The goal of the project is to gain a better understanding of web development processes and enhance networking skills in C. The server allows users to securely access content via web browsers and communicates using basic HTTP protocol. It is powered by the OpenSSL library to implement SSL/TLS protocols and serves as a foundational example for C-based applications.
+</p>
 
 ---
 
