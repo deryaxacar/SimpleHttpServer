@@ -1,123 +1,118 @@
-<h2 align="center">My Simple HTTP Server</h2> 
+<div align="center">
+  <h1>My Simple HTTP Server</h1> <img src="" alt="http Logo" width="80"></br></br>
+</div>
 
 ---
 
-### Proje Açıklaması
+### Project Description
 
-Bu proje, C programlama dili kullanılarak geliştirilmiş bir **basit HTTPS sunucusudur**. Sunucu, SSL/TLS ile güvenli bağlantılar sağlamakta ve istemcilerden gelen HTTP isteklerini işleyerek yanıt vermektedir. Proje, statik dosyalar sunma, kullanıcı geri bildirimlerini işleme ve bir API aracılığıyla JSON formatında veri sağlama gibi temel işlevleri içermektedir.
+This project is a **simple HTTPS server** developed using the C programming language. The server establishes secure connections using SSL/TLS and handles HTTP requests from clients to serve responses. The project includes core functionalities such as serving static files, handling user feedback, and providing data in JSON format via a simple API.
 
-Projenin amacı, web geliştirme süreçlerini daha iyi anlamak ve C dilinde ağ programlama becerilerini geliştirmektir. Geliştirilen sunucu, kullanıcıların web tarayıcıları aracılığıyla güvenli bir şekilde içerik almasını sağlar ve temel HTTP protokolü ile iletişim kurar. Bu proje, SSL/TLS protokollerini uygulamak için kullanılan OpenSSL kütüphanesi ile donatılmıştır ve C dilindeki uygulamalar için örnek bir temel sunmaktadır.
-
----
-
-### Özellikler
-
-- **Güvenli Bağlantı**: OpenSSL kullanılarak kurulan SSL/TLS bağlantıları ile güvenli iletişim sağlar. Bu, veri bütünlüğü ve gizliliği sağlamak için kritik öneme sahiptir.
-  
-- **Statik Dosya Sunumu**: HTML, CSS ve JavaScript dosyalarını istemcilere sunma yeteneği. Bu özellik, dinamik içerik sunumuna geçiş için bir temel sağlar.
-  
-- **İstemci Geri Bildirimi**: Kullanıcıdan gelen geri bildirimleri işleyerek yanıt verme. Bu, kullanıcı etkileşimini artırır ve web uygulamalarının kullanıcı ihtiyaçlarına daha iyi yanıt vermesine olanak tanır.
-  
-- **Basit API**: Kullanıcı bilgilerini JSON formatında sunma. Bu özellik, geliştiricilerin sunucu ile etkileşimde bulunmasını kolaylaştırır.
-  
-- **Kolay Kurulum**: Basit adımlar ile kurulum ve başlatma süreci. Kullanıcıların projeyi hızlıca çalıştırmasını sağlar.
+The goal of the project is to gain a better understanding of web development processes and enhance networking skills in C. The server allows users to securely access content via web browsers and communicates using basic HTTP protocol. It is powered by the OpenSSL library to implement SSL/TLS protocols and serves as a foundational example for C-based applications.
 
 ---
 
-### Gereksinimler
+### Features
 
-Projenin çalışabilmesi için aşağıdaki gereksinimlerin karşılanması gerekmektedir:
-
-- **C Derleyicisi**: GCC veya başka bir C derleyicisi.
+- **Secure Connection**: Ensures secure communication using SSL/TLS connections established with OpenSSL. This is essential for maintaining data integrity and confidentiality.
   
-- **OpenSSL Kütüphanesi**: SSL/TLS protokollerini kullanabilmek için gerekli kütüphaneler.
+- **Static File Serving**: Ability to serve HTML, CSS, and JavaScript files to clients, laying the groundwork for dynamic content delivery.
   
-- **pthread Kütüphanesi**: Çoklu iş parçacığı desteği için.
+- **Client Feedback Handling**: Processes feedback from users and returns appropriate responses. This enhances user interaction and responsiveness of web applications.
+  
+- **Simple API**: Serves user data in JSON format, making it easier for developers to interact with the server.
+  
+- **Easy Setup**: Straightforward setup and launch steps allow users to get the project up and running quickly.
 
 ---
 
-### Kurulum Adımları
+### Requirements
 
-1. **Depoyu Klonlayın**
+To run the project, the following dependencies are required:
 
-Öncelikle projeyi GitHub üzerinden klonlayın:
+- **C Compiler**: GCC or any other C compiler.
+- **OpenSSL Library**: Required to use SSL/TLS protocols.
+- **pthread Library**: For multi-threading support.
+
+---
+
+### Installation Steps
+
+1. **Clone the Repository**
+
+First, clone the project from GitHub:
 ```bash
-git clone https://github.com/kullanici_adiniz/simple-http-server.git
+git clone https://github.com/your_username/simple-http-server.git
 cd simple-http-server
+
 ```
 
-2. **Gerekli Kütüphaneleri Yükleyin**
+2. **Install Dependencies**
 
-OpenSSL ve diğer gerekli kütüphaneleri yüklemek için terminalde aşağıdaki komutları çalıştırın. Örneğin, Ubuntu için:
+Install OpenSSL and other necessary libraries. On Ubuntu:
 ```bash
 sudo apt-get update
 sudo apt-get install libssl-dev
 ```
 
-3. **SSL Sertifikası Oluşturma**
+3. **Generate SSL Certificate**
 
-SSL/TLS için gerekli olan sertifikayı ve özel anahtarı oluşturmak için aşağıdaki komutu kullanın:
+To generate the required SSL/TLS certificate and private key:
 ```bash
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key -out server.crt
 ```
-Bu komut sizden bazı bilgiler isteyecektir (ülke, eyalet, organizasyon adı vb.). Bilgileri girdikten sonra, `server.crt` ve `server.key` dosyaları oluşturulacaktır.
 
-4. **Proje Dosyalarını Derleyin**
+This command will prompt you for some information (country, state, organization, etc.). After completing, `server.crt` and `server.key` files will be created.
 
-Proje dizininde aşağıdaki komutu çalıştırarak sunucu uygulamasını derleyin:
+4. **Compile the Project**
+
+Compile the server using the following command:
 ```bash
 gcc -o https_server https_server.c -lssl -lcrypto -lpthread
 ```
-Bu komut, `https_server` adlı çalıştırılabilir bir dosya oluşturacaktır.
+
+This will generate an executable named `https_server`.
 
 ---
 
-### Kullanım
+### Usage
 
-**1. Sunucuyu Başlatın**
+**1. Start the Server**
 
-Sunucuyu başlatmak için terminalde şu komutu çalıştırın:
+Run the server with:
 ```bash
 sudo ./https_server
 ```
-Sunucu, varsayılan olarak 4433 numaralı portta dinlemeye başlayacaktır. Terminalde "Listening on port 4433..." mesajını görmelisiniz.
+By default, the server listens on port 4433. You should see a message like:
+"Listening on port 4433..."
 
-2. **Tarayıcıda Test Edin**
+2. **Test in Browser**
 
-Tarayıcınızı açın ve `https://localhost:4433` adresine gidin. Güvenlik uyarısı alabilirsiniz; bu, kendi oluşturduğunuz bir sertifika kullanmanızdan kaynaklanıyor. İleri seçeneği ile devam edin ve sunucu ana sayfasını görmelisiniz.
+`https://localhost:4433`
+You may encounter a security warning—this is expected since you're using a self-signed certificate. Proceed to continue and you should see the server homepage.
 
-3. **Geri Bildirim Gönderin**
+3. **Send Feedback**
 
-Ana sayfada bulunan geri bildirim formunu doldurarak sunucuya geri bildirim gönderebilirsiniz. Formu doldurduktan sonra gönderdiğiniz bilgiler, sunucu tarafından işlenir ve onay mesajı ile birlikte geri döner.
+Fill out the feedback form on the homepage to submit input to the server. Once submitted, the server will process the data and respond with a confirmation message.
 
-4. **Kullanıcıları Listeleme**
+4. **View Users**
 
-Kullanıcı bilgilerini JSON formatında görüntülemek için `https://localhost:4433/users` adresine gidin. Bu, sunucu tarafından sağlanan örnek kullanıcı verilerini gösterecektir.
-
----
-
-### Proje Yapısı
-
-Aşağıda proje dosyalarının kısa açıklamaları bulunmaktadır:
-
-- `https_server.c`: Sunucu uygulaması, SSL bağlantılarını yönetir, istemci isteklerini işler ve yanıt verir.
-- `simple_http_server.h`: Proje genelinde kullanılan fonksiyonların ve değişkenlerin tanımlandığı başlık dosyası.
-- `server.crt`: SSL sertifikası dosyası.
-- `server.key`: SSL özel anahtarı dosyası.
-- `index.html`: Sunucunun ana sayfası için kullanılan HTML dosyası.
-- `styles.css`: Ana sayfanın stil dosyası.
-- `script.js`: Ana sayfanın JavaScript dosyası.
+To see user data in JSON format, visit: `https://localhost:4433/users`
 
 ---
 
-### Katkıda Bulunma
+### Project Structure
 
-Bu projeye katkıda bulunmak isterseniz, lütfen aşağıdaki adımları izleyin:
-
-1. Depoyu fork'layın.
-2. Yeni bir dal oluşturun (`git checkout -b feature/your-feature`).
-3. Değişikliklerinizi yapın ve commit edin (`git commit -m 'Add some feature'`).
-4. Dalınızı GitHub'a gönderin (`git push origin feature/your-feature`).
-5. Pull request açın.
+- `https_server.c`: Main server logic, handles SSL connections, HTTP requests, and responses.
+- `simple_http_server.h`: Header file with function and variable declarations used across the project.
+- `server.crt`: SSL certificate file.
+- `server.key`: SSL private key file.
+- `index.html`: Homepage served by the server.
+- `styles.css`: Styling for the homepage.
+- `script.js`: JavaScript file for homepage interactions.
 
 ---
+
+<div align="center">
+  <b>2023 | Created by Derya ACAR</b>
+</div>
